@@ -135,17 +135,6 @@ investigate for self-driving cars. Another direction would be to train YOLO on t
 
 ---
 
-# Discussion
-
-## Problems / issues encountered and outlook
-
-1. I started out with a linear SVM due to its fast evaluation. Nonlinear kernels such as `rbf` take not only longer to train, but also much longer to evaluate. Using the linear SVM I obtained 
-execution speeds of 3 FPS which is rather slow. However, there is ample room for improvement. At the moment the HOG features are computed for every single image which is inefficient. 
-A way to improve speed would be to compute the HOG features only once for the entire region of interest and then select the right feature vectors, when the image is slid across. 
-
-2. The evaluation of feature vectors is currently done sequentially, but could easily be parallelized, e.g. using OpenMP. However, this would require rewriting the code in C++.
- 
-3. Some false positives still remain after heatmap filtering. This should be improvable by using more labeled data. 
 
 
 
